@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Visualize Stable Matching Algorithm In Real-Time.">
+        <meta name="keywords" content="algorithm, stable, matching, stable matching, visualization, visualizer, visualize">
+        <meta name="author" content="Ralph Louis Gopez">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+        <!-- Facebook OpenGraph -->
+        <meta property="og:title" content="stmvz | Stable Matching Algorithm Visualizer">
+        <meta property="og:description" content="Explore the stable marriage algorithm in real-time.">
+        <meta property="og:image" content="https://stmviz.herokuapp.com/images/large.png">
+        <meta property="og:url" content="https://stmviz.herokuapp.com/index.html">
+
+        <!-- Twitter -->
+        <meta name="twitter:title" content="stmviz | Stable Matching Algorithm Visualizer">
+        <meta name="twitter:description" content="Explore the stable marriage algorithm in real-time.">
+        <meta name="twitter:image" content="https://stmviz.herokuapp.com/images/large.png">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <title>stmviz - Stable Matching Visualization</title>
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" href="libraries/fontawesome/css/all.css">
+        <link rel="stylesheet" href="dist/style.min.css">
+    </head>
+    <body>
+        <!-- This noscript shows a message and hides the main grid if script is disabled. -->
+        <noscript>
+            <style type="text/css">
+                .js-disabled { display:none !important; }
+                body {
+                    width: 100%;
+                    height: 100%;
+                }
+            </style>
+            <div id="noscript-message">
+                Javascript is required for the application to run.
+            </div>
+        </noscript>
+        <div id="orientation-warning">
+            Please orient to landscape to allow application.
+        </div>
+        <!-- This is the main grid -->
+        <div id="main-grid" class="js-disabled">
+            <div id="notifier"></div>
+            <div id="controls">
+                <a href="https://github.com/sevora/" target="_blank" title="Check Github repository" id="github"><i class="fab fa-github"></i></a>
+                <div class="control-group" id="main-controls">
+                    <button id="reset-default" title="Reset to default"><i class="fas fa-redo"></i></button>
+                    <button id="random-configuration" title="Random configuration"><i class="fas fa-random"></i></button>
+                    <button id="play-visualization" title="Play visualization"><i class="fas fa-play"></i></button>
+                    <button id="skip-visualization" title="Skip visualization" class="disabled"><i class="fas fa-forward"></i></button>
+                    <button id="pause-visualization" title="Pause visualization" class="disabled"><i class="fas fa-pause"></i></button>
+                    <button id="stop-visualization" title="Stop visualization" class="disabled"><i class="fas fa-stop"></i></button>
+                    <button id="save-configuration" title="Save configuration"><i class="fas fa-save"></i></button>
+                    <label for="file-input" id="file-input-label" title="Load configuration"><i class="fas fa-file-import"></i></label>
+                    <input id="file-input" type="file" accept="application/json">
+                </div>
+                <a href="about.html" target="_blank" title="About" id="about"><i class="fas fa-question-circle"></i></a>
+            </div>
+            <div id="male"> 
+                <div id="male-add" class="add-entity">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+            <div id="ground" class="disabled">
+            </div>
+            <div id="female">
+                <div id="female-add" class="add-entity">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+        </div>
+        <script src="dist/index.min.js"></script>
+    </body>
+</html>

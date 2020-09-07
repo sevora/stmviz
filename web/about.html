@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Visualizing Stable Matching Algorithm In Real-Time">
+        <meta name="keywords" content="algorithm, stable, matching, stable matching, visualization, visualizer, visualize">
+        <meta name="author" content="Ralph Louis Gopez">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"> 
+
+        <!-- Facebook OpenGraph -->
+        <meta property="og:title" content="stmvz | Stable Matching Algorithm Visualizer">
+        <meta property="og:description" content="Explore the stable marriage algorithm in real-time.">
+        <meta property="og:image" content="https://stmviz.herokuapp.com/images/large.png">
+        <meta property="og:url" content="https://stmviz.herokuapp.com/index.html">
+
+        <!-- Twitter -->
+        <meta name="twitter:title" content="stmviz | Stable Matching Algorithm Visualizer">
+        <meta name="twitter:description" content="Explore the stable marriage algorithm in real-time.">
+        <meta name="twitter:image" content="https://stmviz.herokuapp.com/images/large.png">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <title>stmviz - About</title>
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" href="css/fonts.css">
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                font-family: Roboto;
+            }
+            a, a:visited {
+                text-decoration: none;
+                color: blue;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .hero {
+                font-size: 64px;
+                padding: 20px 0px 10px 30px;
+                font-weight: 200;
+            }
+            .partition {
+                padding-left: 30px;
+                padding-right: 20px;
+            }
+            .question {
+                font-size: 32px;
+                font-weight: 200;
+                margin-bottom: 10px;
+            }
+            .answer {
+                margin-top: 10px;
+                line-height: 40px;
+                font-size: 24px;
+                font-weight: 100;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hero">About</div>
+        <div class="partition">
+            <p class="question">What is stmviz?</p>
+            <p class="answer">
+                <a href="index.html">stmviz</a> is a real-time <a href="https://en.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm">Stable Marriage Algorithm</a> Visualizer.
+                This application uses the classic version made by David Gale and Lloyd Shapley. With the visualizer, you are able to see how the algorithm
+                works step-by-step. The visualizer was developed by <a href="https://github.com/sevora">@sevora</a> for the <a href="https://www.algoexpert.io/swe-project-contests/2020-summer">AlgoExpert SWE Project Contest Summer-Fall 2020.</a>
+            </p>
+        </div>
+         <div class="partition">
+            <p class="question">How do I use it?</p>
+            <p class="answer">
+                You can edit the names of everyone in either group of male or female, you may also see their list by clicking on their arrow icon.
+                Drag and drop to rearrange their preference list. You may also remove them with the trash icon, or add more with the add icon. 
+                Use the play button to start the visualization. Skip if you want to see immediately their best stable pairing. For reference, you
+                may watch this <a href="https://youtu.be/Qcv1IqHWAzg">video</a> from Numberphile to understand what stable marriage is.
+            </p>
+        </div>       
+        <div class="partition">
+            <p class="question">It isn't working?</p>
+            <p class="answer">
+                Websites require Javascript to enable complex user interactions such as drag and drop, input synchronization, and
+                even controllable animations. If your browser has Javascript disabled, the visualizer cannot work at all.
+            </p>
+        </div>
+        
+        <div class="partition">
+            <p class="question">Incompatible with my browser?</p>
+            <p class="answer">
+                The required version of Javascript that your browser can run must be at least ES5 (which was released in June 2009.) 
+                This is supported by the latest versions of browsers such as Chrome, Safari, Edge, Opera, and Android.
+            </p>
+        </div>
+
+        <div class="partition">
+            <p class="question">Can I get the source code?</p>
+            <p class="answer">
+                Yes. The source code for this visualizer is open to the public and is hosted <a href="https://github.com/sevora/stmviz">@Github</a>.
+            </p>
+        </div>
+    </body>
+</html>

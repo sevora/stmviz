@@ -1,0 +1,18 @@
+/*
+ * Styling of all
+ * scrollbars.
+ */
+::-webkit-scrollbar {
+    width: 6px; 
+    height: 6px;
+    transition-duration: 1s;
+}
+
+#male:hover::-webkit-scrollbar-thumb, #female:hover::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: rgb(200, 200, 200);
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}

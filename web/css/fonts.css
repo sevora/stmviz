@@ -1,0 +1,27 @@
+/*
+ * Fonts should be placed
+ * here.
+ */
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Light.ttf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Medium.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
