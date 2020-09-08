@@ -284,7 +284,15 @@ var StableMarriage = /*#__PURE__*/function () {
       // and has not rejected the male as well.
 
       var male = this.single[0];
-      var female = this.female[male.getNonRejectedPreferenceIndex()];
+      var female = this.female[male.getNonRejectedPreferenceIndex()]; // In case a male has proposed to all possible females
+      // and have been rejected by all (somehow), then add him
+      // to the nosolution array.
+
+      if (male.rejects.length == this.female.length) {
+        this.nosolution.push(this.single.shift());
+        return;
+      }
+
       this.log.addProcess('prepare', {
         male: male,
         female: female
@@ -329,13 +337,6 @@ var StableMarriage = /*#__PURE__*/function () {
             female: female
           });
         }
-      } // In case a male has proposed to all possible females
-      // and have been rejected by all (somehow), then add him
-      // to the nosolution array.
-
-
-      if (male.rejects.length == this.female.length) {
-        this.nosolution.push(this.single.shift());
       }
 
       this.log.addProcess('done', {

@@ -176,6 +176,15 @@ class StableMarriage {
         // and has not rejected the male as well.
         let male = this.single[0];
         let female = this.female[male.getNonRejectedPreferenceIndex()];
+
+        // In case a male has proposed to all possible females
+        // and have been rejected by all (somehow), then add him
+        // to the nosolution array.
+        if (male.rejects.length == this.female.length) {
+            this.nosolution.push( this.single.shift() );
+            return;
+        }
+
         this.log.addProcess('prepare', { male, female });
 
         // If the male and female are both free,
@@ -212,15 +221,7 @@ class StableMarriage {
             }
         }
 
-        // In case a male has proposed to all possible females
-        // and have been rejected by all (somehow), then add him
-        // to the nosolution array.
-        if (male.rejects.length == this.female.length) {
-            this.nosolution.push( this.single.shift() );
-        }
-
         this.log.addProcess('done', { male, female });
-
 
         // Mark the end of the log
         this.log.endProcess();
