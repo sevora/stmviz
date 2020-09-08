@@ -859,7 +859,7 @@ function getDOMNameIndexMap() {
   var map = {};
 
   for (var _i = 0, _arr = [].concat(_toConsumableArray(maleDOM.children), _toConsumableArray(femaleDOM.children)); _i < _arr.length; _i++) {
-    entityDOM = _arr[_i];
+    var entityDOM = _arr[_i];
 
     if (entityDOM.classList.contains('entity')) {
       var inputDOM = entityDOM.querySelector('.name input');
@@ -882,16 +882,15 @@ function getDOMConfiguration() {
   };
 
   for (var _i2 = 0, _arr2 = [].concat(_toConsumableArray(maleDOM.children), _toConsumableArray(femaleDOM.children)); _i2 < _arr2.length; _i2++) {
-    var _entityDOM = _arr2[_i2];
+    var entityDOM = _arr2[_i2];
     // Skip this iteration if the entity is the add-entity element.
-    if (_entityDOM.classList.contains('add-entity')) continue;
-    var group = _entityDOM.parentNode == maleDOM ? 'male' : 'female'; // Get the name and preferences,
+    if (entityDOM.classList.contains('add-entity')) continue;
+    var group = entityDOM.parentNode == maleDOM ? 'male' : 'female'; // Get the name and preferences,
 
-    var name = _entityDOM.querySelector('.name input').value;
-
+    var name = entityDOM.querySelector('.name input').value;
     var preferences = []; // The preferences are looked up by iterating through the preference list.
 
-    var preferenceListDOM = _entityDOM.querySelector('.preference');
+    var preferenceListDOM = entityDOM.querySelector('.preference');
 
     var _iterator8 = _createForOfIteratorHelper(preferenceListDOM.children),
         _step8;
@@ -1053,11 +1052,9 @@ function entityRemoveClick(event) {
 
   try {
     for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
-      var _entityDOM2 = _step10.value;
-      if (_entityDOM2 == baseEntityDOM || _entityDOM2.classList.contains('add-entity')) continue;
-
-      var entityInputDOM = _entityDOM2.querySelector('.name input');
-
+      var entityDOM = _step10.value;
+      if (entityDOM == baseEntityDOM || entityDOM.classList.contains('add-entity')) continue;
+      var entityInputDOM = entityDOM.querySelector('.name input');
       var index = parseInt(entityInputDOM.dataset.index);
 
       if (currentIndex < index) {
@@ -1077,11 +1074,11 @@ function entityRemoveClick(event) {
 
   try {
     for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
-      var _entityDOM3 = _step11.value;
+      var _entityDOM = _step11.value;
       // This approach is done for O(n) time complexity instead of O(2n)
-      if (_entityDOM3.classList.contains('add-entity')) continue;
+      if (_entityDOM.classList.contains('add-entity')) continue;
 
-      var preferenceListDOM = _entityDOM3.querySelector('.preference'); // The preference to be removed
+      var preferenceListDOM = _entityDOM.querySelector('.preference'); // The preference to be removed
       // and the preference that will take
       // over this preferences' index will remain
       // untouched.
@@ -1120,7 +1117,7 @@ function entityRemoveClick(event) {
       preferenceDOMRemove.remove(); // Also recalculate the height of the entity
       // whose preferences are manipulated if it is toggled.
 
-      if (_entityDOM3.classList.contains('edit-preference')) _entityDOM3.style.minHeight = calculateOpenEntityHeight(_entityDOM3) + 'px';
+      if (_entityDOM.classList.contains('edit-preference')) _entityDOM.style.minHeight = calculateOpenEntityHeight(_entityDOM) + 'px';
     }
   } catch (err) {
     _iterator11.e(err);
@@ -1548,33 +1545,24 @@ function makeResultInteractable() {
 
   for (var _i4 = 0, _arr4 = [].concat(_toConsumableArray(stableMarriageAlgorithm.male), _toConsumableArray(stableMarriageAlgorithm.female)); _i4 < _arr4.length; _i4++) {
     var entity = _arr4[_i4];
-    var _entityDOM4 = entity.element;
-
-    var nameDOM = _entityDOM4.querySelector('.name input');
-
-    var togglePreferenceDOM = _entityDOM4.querySelector('.name .toggle-preference');
-
-    var removeEntityDOM = _entityDOM4.querySelector('.name .remove-entity');
-
+    var entityDOM = entity.element;
+    var nameDOM = entityDOM.querySelector('.name input');
+    var togglePreferenceDOM = entityDOM.querySelector('.name .toggle-preference');
+    var removeEntityDOM = entityDOM.querySelector('.name .remove-entity');
     nameDOM.classList.add('disabled'); // change the event listener to show them and their partner
     // on ground container when clicked in any way.
 
     togglePreferenceDOM.removeEventListener('click', entityPreferenceClick);
-
-    _entityDOM4.addEventListener('click', entityPartnerShowClick);
-
+    entityDOM.addEventListener('click', entityPartnerShowClick);
     removeEntityDOM.removeEventListener('click', entityRemoveClick);
-
-    _entityDOM4.classList.add('prepare');
-
-    _entityDOM4.classList.remove('disabled'); // This dictates the styling of those who have
+    entityDOM.classList.add('prepare');
+    entityDOM.classList.remove('disabled'); // This dictates the styling of those who have
     // partner and not.
 
-
     if (entity.partner !== null) {
-      _entityDOM4.classList.add('marry');
+      entityDOM.classList.add('marry');
     } else {
-      _entityDOM4.classList.add('reject');
+      entityDOM.classList.add('reject');
     }
   }
 }
@@ -1806,17 +1794,13 @@ function playVisualizationClick(event) {
       try {
         for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
           var entity = _step16.value;
-          var _entityDOM5 = baseGroupDOM.children[stableMarriageNameIndex[entity.name]];
-
-          _entityDOM5.classList.remove('edit-preference');
-
-          _entityDOM5.style.removeProperty('min-height');
-
-          _entityDOM5.classList.add('disabled'); // and set each entity in algorithm
+          var entityDOM = baseGroupDOM.children[stableMarriageNameIndex[entity.name]];
+          entityDOM.classList.remove('edit-preference');
+          entityDOM.style.removeProperty('min-height');
+          entityDOM.classList.add('disabled'); // and set each entity in algorithm
           // its corresponding DOM element.
 
-
-          entity.element = _entityDOM5;
+          entity.element = entityDOM;
         }
       } catch (err) {
         _iterator16.e(err);

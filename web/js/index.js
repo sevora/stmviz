@@ -147,7 +147,7 @@ function nameIndexMap(configuration) {
  */
 function getDOMNameIndexMap() {
     let map = {};
-    for (entityDOM of [...maleDOM.children, ...femaleDOM.children]) {
+    for (let entityDOM of [...maleDOM.children, ...femaleDOM.children]) {
         if (entityDOM.classList.contains('entity')) {
             let inputDOM = entityDOM.querySelector('.name input');
             map[inputDOM.value] = parseInt(inputDOM.dataset.index);
