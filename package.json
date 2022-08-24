@@ -4,7 +4,6 @@
   "description": "Stable Matching Visualization in Real-Time",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
     "build": "grunt"
   },
   "dependencies": {

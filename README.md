@@ -11,8 +11,6 @@ the stylesheets and the final scripts.
 ![stmviz](screenshot.png)
 
 ## Installation
-- `npm install` - to install all the dependencies in running the server. 
-- `npm start` - to start the node server which uses the PORT variable in the .env file, in case there is not one then port 3000 is used.
 - `npm run build` - to run Grunt and its tasks of automatically transpiling and minifying scripts.
 
 ## Development

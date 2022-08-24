@@ -10,15 +10,15 @@
  */
 const concat = {
     target1: {
-        src: ['web/js/*.js', '!web/js/index.js'],
-        dest: 'web/dist/es6-modules.js'
+        src: ['js/*.js', '!js/index.js'],
+        dest: 'dist/es6-modules.js'
     },
     target2: {
         options: {
             sourceMap: true
         },
-        src: ['web/dist/es6-modules.js', 'web/js/index.js'],
-        dest: 'web/dist/es6-all.js'
+        src: ['dist/es6-modules.js', 'js/index.js'],
+        dest: 'dist/es6-all.js'
         
     }
 }
@@ -34,7 +34,7 @@ const babel = {
     },
     dist: {
         files: {
-            'web/dist/index.js': 'web/dist/es6-all.js'
+            'dist/index.js': 'dist/es6-all.js'
         }
     }
 }
@@ -45,8 +45,8 @@ const babel = {
  */
 const uglify = {
     files: {
-        src: 'web/dist/index.js',
-        dest: 'web/dist/index.min.js'
+        src: 'dist/index.js',
+        dest: 'dist/index.min.js'
     }
 }
 
@@ -60,8 +60,8 @@ const cssmin = {
         specialComments: 0
     },
     files: {
-        src: 'web/css/*.css',
-        dest: 'web/dist/style.min.css'
+        src: 'css/*.css',
+        dest: 'dist/style.min.css'
     }
 }
 
@@ -74,9 +74,9 @@ const copy = {
         processContent: false
     },
     files: {
-        cwd: 'web/css/fonts',
+        cwd: 'css/fonts',
         src: '**/*',
-        dest: 'web/dist/fonts',
+        dest: 'dist/fonts',
         expand: true
     }
 }
