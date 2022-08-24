@@ -11,6 +11,7 @@ the stylesheets and the final scripts.
 ![stmviz](screenshot.png)
 
 ## Installation
+- `npm install --dev` - to install the task runner dependencies and be able to build the scripts. 
 - `npm run build` - to run Grunt and its tasks of automatically transpiling and minifying scripts.
 
 ## Development
