@@ -60,8 +60,3 @@ by clicking on any entity.
 
 #### Stopping the visualization
 The user may stop the visualization at any time and it will go back to their latest configuration.
-
-### Backend
-Not much is in the backend as the application can be run as a static website.
-On backend, the https protocol is automatically applied for every client that will
-visit the site.
