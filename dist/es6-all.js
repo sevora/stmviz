@@ -565,10 +565,8 @@ const pauseVisualizationDOM = document.getElementById('pause-visualization');
 const stopVisualizationDOM = document.getElementById('stop-visualization');
 const skipVisualizationDOM = document.getElementById('skip-visualization');
 
-//
 const notifier = new Notifier(document.getElementById('notifier'));
 
-//
 let stableMarriageConfiguration;
 let stableMarriageAlgorithm;
 let stableMarriageNameIndex;
@@ -647,11 +645,8 @@ function createRandomConfiguration(maleCount, femaleCount) {
  * returns a random name that can be found in configuration.js
  */
 function getRandomName(gender) {
-    if (gender == 'male') {
-        return maleNames[Math.floor(Math.random() * maleNames.length)];
-    } else if (gender == 'female') {
-        return femaleNames[Math.floor(Math.random() * femaleNames.length)];
-    }
+    let array = gender === 'male' ? maleNames : femaleNames;
+    return array[Math.floor(Math.random() * array.length)];
 }
 
 /*
@@ -745,12 +740,7 @@ function clientSaveFile(data, filename, type) {
  */
 function calculateOpenEntityHeight(entityDOM) {
     let preferenceListDOM = entityDOM.querySelector('.preference');
-    let extraHeight = preferenceListDOM.children[0].offsetHeight * preferenceListDOM.children.length;
-    // An original height is stored on the first time hooking of click event (line 195).
-    if (!entityDOM.dataset.originalHeight) {
-        entityDOM.dataset.originalHeight = entityDOM.offsetHeight;
-    }
-    return parseInt(entityDOM.dataset.originalHeight) + extraHeight;
+    return preferenceListDOM.children[0].offsetHeight * (preferenceListDOM.children.length + 1);
 };
 
 /*
@@ -760,7 +750,6 @@ function calculateOpenEntityHeight(entityDOM) {
 function entityPreferenceClick(event) {
     // event.currentTarget.parent.parent.classList.toggle('edit');
     let baseEntityDOM = event.currentTarget.parentElement.parentElement;
-    if (!baseEntityDOM.dataset.originalHeight) baseEntityDOM.dataset.originalHeight = baseEntityDOM.offsetHeight;
 
     if (baseEntityDOM.classList.contains('edit-preference')) {
         baseEntityDOM.style.removeProperty('min-height');
@@ -1243,8 +1232,9 @@ function openAndSelectGroundDOM(groundEntityDOM, selectIndex) {
  */
 function closeGroundDOM(groundEntityDOM) {
     animationQueue.add(function() { 
-        groundEntityDOM.classList.remove('expand-preference');
         groundEntityDOM.style.removeProperty('min-height');
+        groundEntityDOM.classList.remove('expand-preference');
+        groundEntityDOM.querySelector('.preference').remove();
     }, 500);
 }
 
@@ -1637,6 +1627,8 @@ function skipVisualizationClick(event) {
     makeResultInteractable();
     notifier.queueMessage('valid', 'Toggle an entity with their angle button to see their partner.');
 }
+
+
 
 // Populate the DOM with default configuration on 
 // start.

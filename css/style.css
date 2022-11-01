@@ -390,10 +390,6 @@ input[type="file"] {
     background-color: rgb(100, 200, 100);
 }
 
-#ground .entity.expand-preference {
-
-}
-
 #ground .entity.expand-preference .name, .entity.expand-preference .name * { 
     color: rgb(255, 255, 255);
 }
