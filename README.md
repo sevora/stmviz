@@ -1,5 +1,5 @@
 # stmviz &middot; ![GitHub](https://img.shields.io/github/license/sevora/stmviz) ![GitHub repo size](https://img.shields.io/github/repo-size/sevora/stmviz)
-A stable marriage algorithm visualizer.
+A stable marriage algorithm visualizer. This is a submission to [AlgoExpert SWE Project Contest Summer-Fall 2020](https://www.algoexpert.io/swe-project-contests/2020-summer) under honorable mentions.
 
 ## Overview
 This is a visualizer for the classic [Gale-Shapley Algorithm](https://en.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm). 
